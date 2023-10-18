@@ -1,0 +1,16 @@
+.edit-section {
+  background-color: gray;
+  height: 100%;
+  width: 50vw;
+}
+
+.card > h1 {
+  font-size: 3rem;
+  color: blue;
+}
+
+.card > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: clamp(150px, 30%, 400px);
+}
