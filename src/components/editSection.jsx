@@ -1,17 +1,7 @@
 import "../styles/editSection.css";
 import InputEditPersonal from "./all-inputs/inputEditPersonal";
+import InputEditEducation from "./all-inputs/inputEditEducation";
 
-const educationInputs = [
-  { id: "school-name-input", label: "Name of School", type: "text" },
-  {
-    id: "school-location-input",
-    label: "City, State, Country",
-    type: "text",
-  },
-  { id: "school-degree-input", label: "Degree", type: "text" },
-  { id: "school-start-input", label: "Start Month/Year", type: "text" },
-  { id: "school-end-input", label: "End Month/Year", type: "text" },
-];
 const workInputs = [
   { id: "work-name-input", label: "Company", type: "text" },
   {
@@ -39,6 +29,16 @@ export default function EditSection({
   handleRoleChange,
   linkedIn,
   handleLinkedInChange,
+  schoolName,
+  handleSchoolNameChange,
+  schoolLocation,
+  handleSchoolLocationChange,
+  degree,
+  handleDegreeChange,
+  schoolStart,
+  handleSchoolStartChange,
+  schoolEnd,
+  handleSchoolEndChange,
 }) {
   return (
     <>
@@ -58,6 +58,18 @@ export default function EditSection({
           handleRoleChange={handleRoleChange}
           linkedIn={linkedIn}
           handleLinkedInChange={handleLinkedInChange}
+        />
+        <InputEditEducation
+          schoolName={schoolName}
+          handleSchoolNameChange={handleSchoolNameChange}
+          schoolLocation={schoolLocation}
+          handleSchoolLocationChange={handleSchoolLocationChange}
+          degree={degree}
+          handleDegreeChange={handleDegreeChange}
+          schoolStart={schoolStart}
+          handleSchoolStartChange={handleSchoolStartChange}
+          schoolEnd={schoolEnd}
+          handleSchoolEndChange={handleSchoolEndChange}
         />
       </div>
     </>

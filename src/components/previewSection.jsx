@@ -22,10 +22,21 @@ function PreviewPersonalInfo({
 
 // load array of educational experiences
 
-function PreviewEducation() {
+function PreviewEducation({
+  previewSchoolName,
+  previewSchoolLocation,
+  previewDegree,
+  previewSchoolStart,
+  previewSchoolEnd,
+}) {
   return (
     <div className="preview-education">
       <h1>Education</h1>
+      <div>{previewSchoolName}</div>
+      <div>{previewSchoolLocation}</div>
+      <div>{previewDegree}</div>
+      <div>{previewSchoolStart}</div>
+      <div>{previewSchoolEnd}</div>
     </div>
   );
 }
@@ -47,6 +58,11 @@ export default function PreviewSection({
   previewLocation,
   previewRole,
   previewLinkedIn,
+  previewSchoolName,
+  previewSchoolLocation,
+  previewDegree,
+  previewSchoolStart,
+  previewSchoolEnd,
 }) {
   return (
     <div className="preview-section">
@@ -58,7 +74,13 @@ export default function PreviewSection({
         previewRole={previewRole}
         previewLinkedIn={previewLinkedIn}
       />
-      <PreviewEducation />
+      <PreviewEducation
+        previewSchoolName={previewSchoolName}
+        previewSchoolLocation={previewSchoolLocation}
+        previewDegree={previewDegree}
+        previewSchoolStart={previewSchoolStart}
+        previewSchoolEnd={previewSchoolEnd}
+      />
       <PreviewWork />
     </div>
   );

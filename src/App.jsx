@@ -41,6 +41,27 @@ function App() {
     setLinkedIn(e.target.value);
   }
 
+  const [schoolName, setSchoolName] = useState("");
+  function handleSchoolNameChange(e) {
+    setSchoolName(e.target.value);
+  }
+  const [schoolLocation, setSchoolLocation] = useState("");
+  function handleSchoolLocationChange(e) {
+    setSchoolLocation(e.target.value);
+  }
+  const [degree, setDegree] = useState("");
+  function handleDegreeChange(e) {
+    setDegree(e.target.value);
+  }
+  const [schoolStart, setSchoolStart] = useState("");
+  function handleSchoolStartChange(e) {
+    setSchoolStart(e.target.value);
+  }
+  const [schoolEnd, setSchoolEnd] = useState("");
+  function handleSchoolEndChange(e) {
+    setSchoolEnd(e.target.value);
+  }
+
   return (
     <div className="main-container">
       <EditSection
@@ -58,6 +79,16 @@ function App() {
         handleRoleChange={handleRoleChange}
         linkedIn={linkedIn}
         handleLinkedInChange={handleLinkedInChange}
+        schoolName={schoolName}
+        handleSchoolNameChange={handleSchoolNameChange}
+        schoolLocation={schoolLocation}
+        handleSchoolLocationChange={handleSchoolLocationChange}
+        degree={degree}
+        handleDegreeChange={handleDegreeChange}
+        schoolStart={schoolStart}
+        handleSchoolStartChange={handleSchoolStartChange}
+        schoolEnd={schoolEnd}
+        handleSchoolEndChange={handleSchoolEndChange}
       />
       <PreviewSection
         fullName={fullName}
@@ -66,6 +97,11 @@ function App() {
         previewLocation={location}
         previewRole={role}
         previewLinkedIn={linkedIn}
+        previewSchoolName={schoolName}
+        previewSchoolLocation={schoolLocation}
+        previewDegree={degree}
+        previewSchoolStart={schoolStart}
+        previewSchoolEnd={schoolEnd}
       />
     </div>
   );
