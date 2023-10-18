@@ -1,18 +1,7 @@
 import "../styles/editSection.css";
 import InputEditPersonal from "./all-inputs/inputEditPersonal";
 import InputEditEducation from "./all-inputs/inputEditEducation";
-
-const workInputs = [
-  { id: "work-name-input", label: "Company", type: "text" },
-  {
-    id: "work-location-input",
-    label: "City, State, Country",
-    type: "text",
-  },
-  { id: "work-role-input", label: "Position", type: "text" },
-  { id: "work-start-input", label: "Start Month/Year", type: "text" },
-  { id: "work-end-input", label: "End Month/Year", type: "text" },
-];
+import InputEditWork from "./all-inputs/inputEditWork";
 
 export default function EditSection({
   firstName,
@@ -39,6 +28,18 @@ export default function EditSection({
   handleSchoolStartChange,
   schoolEnd,
   handleSchoolEndChange,
+  company,
+  handleCompanyChange,
+  companyLocation,
+  handleCompanyLocationChange,
+  companyRole,
+  handleCompanyRoleChange,
+  companyStart,
+  handleCompanyStartChange,
+  companyEnd,
+  handleCompanyEndChange,
+  companyDescription,
+  handleCompanyDescriptionChange,
 }) {
   return (
     <>
@@ -70,6 +71,20 @@ export default function EditSection({
           handleSchoolStartChange={handleSchoolStartChange}
           schoolEnd={schoolEnd}
           handleSchoolEndChange={handleSchoolEndChange}
+        />
+        <InputEditWork
+          company={company}
+          handleCompanyChange={handleCompanyChange}
+          companyLocation={companyLocation}
+          handleCompanyLocationChange={handleCompanyLocationChange}
+          companyRole={companyRole}
+          handleCompanyRoleChange={handleCompanyRoleChange}
+          companyStart={companyStart}
+          handleCompanyStartChange={handleCompanyStartChange}
+          companyEnd={companyEnd}
+          handleCompanyEndChange={handleCompanyEndChange}
+          companyDescription={companyDescription}
+          handleCompanyDescriptionChange={handleCompanyDescriptionChange}
         />
       </div>
     </>

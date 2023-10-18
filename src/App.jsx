@@ -62,6 +62,36 @@ function App() {
     setSchoolEnd(e.target.value);
   }
 
+  const [company, setCompany] = useState("");
+  function handleCompanyChange(e) {
+    setCompany(e.target.value);
+  }
+
+  const [companyLocation, setCompanyLocation] = useState("");
+  function handleCompanyLocationChange(e) {
+    setCompanyLocation(e.target.value);
+  }
+
+  const [companyRole, setCompanyRole] = useState("");
+  function handleCompanyRoleChange(e) {
+    setCompanyRole(e.target.value);
+  }
+
+  const [companyStart, setCompanyStart] = useState("");
+  function handleCompanyStartChange(e) {
+    setCompanyStart(e.target.value);
+  }
+
+  const [companyEnd, setCompanyEnd] = useState("");
+  function handleCompanyEndChange(e) {
+    setCompanyEnd(e.target.value);
+  }
+
+  const [companyDescription, setCompanyDescription] = useState("");
+  function handleCompanyDescriptionChange(e) {
+    setCompanyDescription(e.target.value);
+  }
+
   return (
     <div className="main-container">
       <EditSection
@@ -89,6 +119,18 @@ function App() {
         handleSchoolStartChange={handleSchoolStartChange}
         schoolEnd={schoolEnd}
         handleSchoolEndChange={handleSchoolEndChange}
+        company={company}
+        handleCompanyChange={handleCompanyChange}
+        companyLocation={companyLocation}
+        handleCompanyLocationChange={handleCompanyLocationChange}
+        companyRole={companyRole}
+        handleCompanyRoleChange={handleCompanyRoleChange}
+        companyStart={companyStart}
+        handleCompanyStartChange={handleCompanyStartChange}
+        companyEnd={companyEnd}
+        handleCompanyEndChange={handleCompanyEndChange}
+        companyDescription={companyDescription}
+        handleCompanyDescriptionChange={handleCompanyDescriptionChange}
       />
       <PreviewSection
         fullName={fullName}
@@ -102,6 +144,12 @@ function App() {
         previewDegree={degree}
         previewSchoolStart={schoolStart}
         previewSchoolEnd={schoolEnd}
+        previewCompanyName={company}
+        previewCompanyLocation={companyLocation}
+        previewCompanyRole={companyRole}
+        previewCompanyStart={companyStart}
+        previewCompanyEnd={companyEnd}
+        previewCompanyDescription={companyDescription}
       />
     </div>
   );

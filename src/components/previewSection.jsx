@@ -43,10 +43,23 @@ function PreviewEducation({
 
 // need to create components for adding new info for education and work experience
 
-function PreviewWork() {
+function PreviewWork({
+  previewCompanyName,
+  previewCompanyLocation,
+  previewCompanyRole,
+  previewCompanyStart,
+  previewCompanyEnd,
+  previewCompanyDescription,
+}) {
   return (
     <div className="preview-work">
       <h1>Work Experience</h1>
+      <div>{previewCompanyName}</div>
+      <div>{previewCompanyLocation}</div>
+      <div>{previewCompanyRole}</div>
+      <div>{previewCompanyStart}</div>
+      <div>{previewCompanyEnd}</div>
+      <div>{previewCompanyDescription}</div>
     </div>
   );
 }
@@ -63,6 +76,12 @@ export default function PreviewSection({
   previewDegree,
   previewSchoolStart,
   previewSchoolEnd,
+  previewCompanyName,
+  previewCompanyLocation,
+  previewCompanyRole,
+  previewCompanyStart,
+  previewCompanyEnd,
+  previewCompanyDescription,
 }) {
   return (
     <div className="preview-section">
@@ -81,7 +100,14 @@ export default function PreviewSection({
         previewSchoolStart={previewSchoolStart}
         previewSchoolEnd={previewSchoolEnd}
       />
-      <PreviewWork />
+      <PreviewWork
+        previewCompanyName={previewCompanyName}
+        previewCompanyLocation={previewCompanyLocation}
+        previewCompanyRole={previewCompanyRole}
+        previewCompanyStart={previewCompanyStart}
+        previewCompanyEnd={previewCompanyEnd}
+        previewCompanyDescription={previewCompanyDescription}
+      />
     </div>
   );
 }
