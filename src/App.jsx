@@ -118,6 +118,8 @@ function App() {
     let submittedObj = createInfo(temp);
 
     handleNewObj(e.target.id, submittedObj);
+
+    e.target.reset();
   }
 
   return (
@@ -180,6 +182,7 @@ function App() {
         previewCompanyEnd={companyEnd}
         previewCompanyDescription={companyDescription}
         educationArr={educationArr}
+        workArr={workArr}
       />
     </div>
   );

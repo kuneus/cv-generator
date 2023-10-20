@@ -26,6 +26,7 @@ export default function PreviewSection({
   previewCompanyEnd,
   previewCompanyDescription,
   educationArr,
+  workArr,
 }) {
   return (
     <div className="preview-section">
@@ -52,6 +53,7 @@ export default function PreviewSection({
         previewCompanyStart={previewCompanyStart}
         previewCompanyEnd={previewCompanyEnd}
         previewCompanyDescription={previewCompanyDescription}
+        workArr={workArr}
       />
     </div>
   );

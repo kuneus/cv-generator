@@ -1,4 +1,3 @@
-// **** DOESN'T WORK YET ****
 function CreateNewEducation({ educationArr }) {
   return (
     <ul className="preview-education-items">

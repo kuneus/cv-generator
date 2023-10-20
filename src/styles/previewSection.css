@@ -7,3 +7,8 @@
 .preview-title {
   font-size: 3rem;
 }
+
+.preview-section li {
+  list-style-type: none;
+  display: block;
+}
