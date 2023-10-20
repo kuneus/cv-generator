@@ -1,68 +1,11 @@
 import "../styles/previewSection.css";
-
-function PreviewPersonalInfo({
-  fullName,
-  previewPhone,
-  previewEmail,
-  previewLocation,
-  previewRole,
-  previewLinkedIn,
-}) {
-  return (
-    <div className="preview-personal-info">
-      <h1>{fullName}</h1>
-      <div>{previewPhone}</div>
-      <div>{previewEmail}</div>
-      <div>{previewLocation}</div>
-      <div>{previewRole}</div>
-      <div>{previewLinkedIn}</div>
-    </div>
-  );
-}
+import PreviewPersonalInfo from "./all-previews/previewPersonalInfo";
+import PreviewEducation from "./all-previews/previewEducation";
+import PreviewWork from "./all-previews/previewWork";
 
 // load array of educational experiences
 
-function PreviewEducation({
-  previewSchoolName,
-  previewSchoolLocation,
-  previewDegree,
-  previewSchoolStart,
-  previewSchoolEnd,
-}) {
-  return (
-    <div className="preview-education">
-      <h1>Education</h1>
-      <div>{previewSchoolName}</div>
-      <div>{previewSchoolLocation}</div>
-      <div>{previewDegree}</div>
-      <div>{previewSchoolStart}</div>
-      <div>{previewSchoolEnd}</div>
-    </div>
-  );
-}
-
 // need to create components for adding new info for education and work experience
-
-function PreviewWork({
-  previewCompanyName,
-  previewCompanyLocation,
-  previewCompanyRole,
-  previewCompanyStart,
-  previewCompanyEnd,
-  previewCompanyDescription,
-}) {
-  return (
-    <div className="preview-work">
-      <h1>Work Experience</h1>
-      <div>{previewCompanyName}</div>
-      <div>{previewCompanyLocation}</div>
-      <div>{previewCompanyRole}</div>
-      <div>{previewCompanyStart}</div>
-      <div>{previewCompanyEnd}</div>
-      <div>{previewCompanyDescription}</div>
-    </div>
-  );
-}
 
 export default function PreviewSection({
   fullName,
@@ -82,6 +25,7 @@ export default function PreviewSection({
   previewCompanyStart,
   previewCompanyEnd,
   previewCompanyDescription,
+  educationArr,
 }) {
   return (
     <div className="preview-section">
@@ -99,6 +43,7 @@ export default function PreviewSection({
         previewDegree={previewDegree}
         previewSchoolStart={previewSchoolStart}
         previewSchoolEnd={previewSchoolEnd}
+        educationArr={educationArr}
       />
       <PreviewWork
         previewCompanyName={previewCompanyName}

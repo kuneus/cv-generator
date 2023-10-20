@@ -1,4 +1,5 @@
 import InputField from "./inputField";
+import FormButtons from "../formButtons";
 
 export default function InputEditEducation({
   schoolName,
@@ -11,12 +12,13 @@ export default function InputEditEducation({
   handleSchoolStartChange,
   schoolEnd,
   handleSchoolEndChange,
+  submitEducation,
 }) {
   return (
     <>
       <div className="card">
         <h1 className="card-title">Education</h1>
-        <ul>
+        <form onSubmit={submitEducation} id="education-form">
           <InputField
             id="school-name-input"
             value={schoolName}
@@ -47,7 +49,8 @@ export default function InputEditEducation({
             onChange={handleSchoolEndChange}
             label="End Month/Year"
           />
-        </ul>
+          <FormButtons />
+        </form>
       </div>
     </>
   );

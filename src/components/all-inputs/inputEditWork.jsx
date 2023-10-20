@@ -1,4 +1,5 @@
 import InputField from "./inputField";
+import FormButtons from "../formButtons";
 
 export default function InputEditWork({
   company,
@@ -13,12 +14,13 @@ export default function InputEditWork({
   handleCompanyEndChange,
   companyDescription,
   handleCompanyDescriptionChange,
+  submitWork,
 }) {
   return (
     <>
       <div className="card">
-        <h1 className="card-title">Education</h1>
-        <ul>
+        <h1 className="card-title">Work</h1>
+        <form onSubmit={submitWork} id="work-form">
           <InputField
             id="company-name-input"
             value={company}
@@ -49,16 +51,19 @@ export default function InputEditWork({
             onChange={handleCompanyEndChange}
             label="End Month/Year"
           />
-          <li>
+          <div>
             <label htmlFor="company-description-input">Description</label>
             <textarea
               id="company-description-input"
               value={companyDescription}
               onChange={handleCompanyDescriptionChange}
             />
-          </li>
-        </ul>
+          </div>
+          <FormButtons />
+        </form>
       </div>
     </>
   );
 }
+
+// create work form

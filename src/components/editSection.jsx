@@ -40,6 +40,7 @@ export default function EditSection({
   handleCompanyEndChange,
   companyDescription,
   handleCompanyDescriptionChange,
+  submit,
 }) {
   return (
     <>
@@ -71,6 +72,7 @@ export default function EditSection({
           handleSchoolStartChange={handleSchoolStartChange}
           schoolEnd={schoolEnd}
           handleSchoolEndChange={handleSchoolEndChange}
+          submitEducation={submit}
         />
         <InputEditWork
           company={company}
@@ -85,6 +87,7 @@ export default function EditSection({
           handleCompanyEndChange={handleCompanyEndChange}
           companyDescription={companyDescription}
           handleCompanyDescriptionChange={handleCompanyDescriptionChange}
+          submitWork={submit}
         />
       </div>
     </>

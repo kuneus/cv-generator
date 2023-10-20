@@ -3,61 +3,69 @@ import "./styles/App.css";
 import PreviewSection from "./components/previewSection";
 import EditSection from "./components/editSection";
 
+// let educationArr = [];
+
+// let workArr = [];
+
+const createInfo = ([...items]) => {
+  return { ...items };
+};
+
 function App() {
-  const [firstName, setFirstName] = useState("");
+  const [firstName, setFirstName] = useState("John");
   function handleFirstNameChange(e) {
     setFirstName(e.target.value);
   }
 
-  const [lastName, setLastName] = useState("");
+  const [lastName, setLastName] = useState("Smith");
   function handleLastNameChange(e) {
     setLastName(e.target.value);
   }
 
   let fullName = firstName + " " + lastName;
 
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("123-456-7890");
   function handlePhoneChange(e) {
     setPhoneNumber(e.target.value);
   }
 
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("New York, New York, USA");
   function handleLocationChange(e) {
     setLocation(e.target.value);
   }
 
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("John.Smith@gmail.com");
   function handleEmailChange(e) {
     setEmail(e.target.value);
   }
 
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState("Software Developer");
   function handleRoleChange(e) {
     setRole(e.target.value);
   }
 
-  const [linkedIn, setLinkedIn] = useState("");
+  const [linkedIn, setLinkedIn] = useState("linkedIn.com/john.smith");
   function handleLinkedInChange(e) {
     setLinkedIn(e.target.value);
   }
 
-  const [schoolName, setSchoolName] = useState("");
+  const [schoolName, setSchoolName] = useState("Princeton University");
   function handleSchoolNameChange(e) {
     setSchoolName(e.target.value);
   }
-  const [schoolLocation, setSchoolLocation] = useState("");
+  const [schoolLocation, setSchoolLocation] = useState("Princeton, NJ");
   function handleSchoolLocationChange(e) {
     setSchoolLocation(e.target.value);
   }
-  const [degree, setDegree] = useState("");
+  const [degree, setDegree] = useState("Computer Science");
   function handleDegreeChange(e) {
     setDegree(e.target.value);
   }
-  const [schoolStart, setSchoolStart] = useState("");
+  const [schoolStart, setSchoolStart] = useState("Sept 2073");
   function handleSchoolStartChange(e) {
     setSchoolStart(e.target.value);
   }
-  const [schoolEnd, setSchoolEnd] = useState("");
+  const [schoolEnd, setSchoolEnd] = useState("May 2077");
   function handleSchoolEndChange(e) {
     setSchoolEnd(e.target.value);
   }
@@ -90,6 +98,26 @@ function App() {
   const [companyDescription, setCompanyDescription] = useState("");
   function handleCompanyDescriptionChange(e) {
     setCompanyDescription(e.target.value);
+  }
+
+  const [educationArr, setEducationArr] = useState([]);
+  const [workArr, setWorkArr] = useState([]);
+  function handleNewObj(type, arr) {
+    type === "education-form"
+      ? setEducationArr(educationArr.concat(arr))
+      : setWorkArr(workArr.concat(arr));
+  }
+
+  function submit(e) {
+    e.preventDefault();
+
+    let temp = [];
+    for (let i = 0; i < e.target.length; i++) {
+      e.target[i].className !== "form-buttons" && temp.push(e.target[i].value);
+    }
+    let submittedObj = createInfo(temp);
+
+    handleNewObj(e.target.id, submittedObj);
   }
 
   return (
@@ -131,6 +159,7 @@ function App() {
         handleCompanyEndChange={handleCompanyEndChange}
         companyDescription={companyDescription}
         handleCompanyDescriptionChange={handleCompanyDescriptionChange}
+        submit={submit}
       />
       <PreviewSection
         fullName={fullName}
@@ -150,6 +179,7 @@ function App() {
         previewCompanyStart={companyStart}
         previewCompanyEnd={companyEnd}
         previewCompanyDescription={companyDescription}
+        educationArr={educationArr}
       />
     </div>
   );

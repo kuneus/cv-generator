@@ -1,6 +1,6 @@
 export default function InputField({ id, type, value, onChange, label }) {
   return (
-    <li>
+    <div>
       <label htmlFor={id}>{label}</label>
       <input
         id={id}
@@ -8,6 +8,6 @@ export default function InputField({ id, type, value, onChange, label }) {
         value={value}
         onChange={onChange}
       />
-    </li>
+    </div>
   );
 }
