@@ -3,16 +3,12 @@ import FormButtons from "../formButtons";
 
 export default function InputEditEducation({
   schoolName,
-  handleSchoolNameChange,
   schoolLocation,
-  handleSchoolLocationChange,
   degree,
-  handleDegreeChange,
   schoolStart,
-  handleSchoolStartChange,
   schoolEnd,
-  handleSchoolEndChange,
   submitEducation,
+  handleChanges,
 }) {
   return (
     <>
@@ -22,31 +18,31 @@ export default function InputEditEducation({
           <InputField
             id="school-name-input"
             value={schoolName}
-            onChange={handleSchoolNameChange}
+            onChange={handleChanges}
             label="School Name"
           />
           <InputField
             id="school-location-input"
             value={schoolLocation}
-            onChange={handleSchoolLocationChange}
+            onChange={handleChanges}
             label="City, State, Country"
           />
           <InputField
             id="school-degree-input"
             value={degree}
-            onChange={handleDegreeChange}
+            onChange={handleChanges}
             label="Degree"
           />
           <InputField
             id="school-start-input"
             value={schoolStart}
-            onChange={handleSchoolStartChange}
+            onChange={handleChanges}
             label="Start Month/Year"
           />
           <InputField
             id="school-end-input"
             value={schoolEnd}
-            onChange={handleSchoolEndChange}
+            onChange={handleChanges}
             label="End Month/Year"
           />
           <FormButtons />

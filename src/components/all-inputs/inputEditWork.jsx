@@ -3,18 +3,13 @@ import FormButtons from "../formButtons";
 
 export default function InputEditWork({
   company,
-  handleCompanyChange,
   companyLocation,
-  handleCompanyLocationChange,
   companyRole,
-  handleCompanyRoleChange,
   companyStart,
-  handleCompanyStartChange,
   companyEnd,
-  handleCompanyEndChange,
   companyDescription,
-  handleCompanyDescriptionChange,
   submitWork,
+  handleChanges,
 }) {
   return (
     <>
@@ -24,31 +19,31 @@ export default function InputEditWork({
           <InputField
             id="company-name-input"
             value={company}
-            onChange={handleCompanyChange}
+            onChange={handleChanges}
             label="Company Name"
           />
           <InputField
             id="company-location-input"
             value={companyLocation}
-            onChange={handleCompanyLocationChange}
+            onChange={handleChanges}
             label="City, State, Country"
           />
           <InputField
             id="company-role-input"
             value={companyRole}
-            onChange={handleCompanyRoleChange}
+            onChange={handleChanges}
             label="Role at Company"
           />
           <InputField
             id="company-start-input"
             value={companyStart}
-            onChange={handleCompanyStartChange}
+            onChange={handleChanges}
             label="Start Month/Year"
           />
           <InputField
             id="company-end-input"
             value={companyEnd}
-            onChange={handleCompanyEndChange}
+            onChange={handleChanges}
             label="End Month/Year"
           />
           <div>
@@ -56,7 +51,7 @@ export default function InputEditWork({
             <textarea
               id="company-description-input"
               value={companyDescription}
-              onChange={handleCompanyDescriptionChange}
+              onChange={handleChanges}
             />
           </div>
           <FormButtons />

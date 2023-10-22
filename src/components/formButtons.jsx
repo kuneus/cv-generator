@@ -5,7 +5,7 @@ export default function FormButtons({ save, cancel, deleteBtn }) {
         Save
       </button>
       <button type="button" onClick={cancel} className="form-buttons">
-        Edit
+        Cancel
       </button>
       <button type="button" onClick={deleteBtn} className="form-buttons">
         Delete

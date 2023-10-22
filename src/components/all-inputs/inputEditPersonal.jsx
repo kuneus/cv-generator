@@ -2,19 +2,13 @@ import InputField from "./inputField";
 
 export default function InputEditPersonal({
   firstName,
-  handleFirstNameChange,
   lastName,
-  handleLastNameChange,
   phoneNumber,
-  handlePhoneChange,
   location,
-  handleLocationChange,
   email,
-  handleEmailChange,
   role,
-  handleRoleChange,
   linkedIn,
-  handleLinkedInChange,
+  handleChanges,
 }) {
   return (
     <>
@@ -24,45 +18,45 @@ export default function InputEditPersonal({
           <InputField
             id="fName-input"
             value={firstName}
-            onChange={handleFirstNameChange}
+            onChange={handleChanges}
             label="First Name"
           />
           <InputField
             id="lName-input"
             value={lastName}
-            onChange={handleLastNameChange}
+            onChange={handleChanges}
             label="Last Name"
           />
           <InputField
             id="phone-input"
             type="tel"
             value={phoneNumber}
-            onChange={handlePhoneChange}
+            onChange={handleChanges}
             label="Phone Number"
           />
           <InputField
             id="location-input"
             value={location}
-            onChange={handleLocationChange}
+            onChange={handleChanges}
             label="Current Location"
           />
           <InputField
             id="email-input"
             type="email"
             value={email}
-            onChange={handleEmailChange}
+            onChange={handleChanges}
             label="Email"
           />
           <InputField
             id="role-input"
             value={role}
-            onChange={handleRoleChange}
+            onChange={handleChanges}
             label="Current Role"
           />
           <InputField
-            id="linkedIn-Input"
+            id="linkedIn-input"
             value={linkedIn}
-            onChange={handleLinkedInChange}
+            onChange={handleChanges}
             label="LinkedIn URL"
           />
         </ul>

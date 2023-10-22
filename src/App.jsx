@@ -12,92 +12,93 @@ const createInfo = ([...items]) => {
 };
 
 function App() {
-  const [firstName, setFirstName] = useState("John");
-  function handleFirstNameChange(e) {
-    setFirstName(e.target.value);
-  }
-
-  const [lastName, setLastName] = useState("Smith");
-  function handleLastNameChange(e) {
-    setLastName(e.target.value);
-  }
-
+  const [firstName, setFirstName] = useState("Anthony");
+  const [lastName, setLastName] = useState("Stark");
   let fullName = firstName + " " + lastName;
-
   const [phoneNumber, setPhoneNumber] = useState("123-456-7890");
-  function handlePhoneChange(e) {
-    setPhoneNumber(e.target.value);
-  }
-
   const [location, setLocation] = useState("New York, New York, USA");
-  function handleLocationChange(e) {
-    setLocation(e.target.value);
-  }
+  const [email, setEmail] = useState("i.am.ironman@gmail.com");
+  const [role, setRole] = useState(
+    "Genius, billionaire, playboy, philanthropist",
+  );
+  const [linkedIn, setLinkedIn] = useState("linkedIn.com/tony.stark");
+  const [schoolName, setSchoolName] = useState(
+    "Massachussetts Institute of Technology",
+  );
+  const [schoolLocation, setSchoolLocation] = useState("Cambridge, MA");
+  const [degree, setDegree] = useState(
+    "Bachelor's of Science in Electrical Engineering and Physics",
+  );
+  const [schoolStart, setSchoolStart] = useState("Sept 1984");
+  const [schoolEnd, setSchoolEnd] = useState("May 1987");
+  const [company, setCompany] = useState("Stark Industries");
+  const [companyLocation, setCompanyLocation] = useState(
+    "New York, New York, USA",
+  );
+  const [companyRole, setCompanyRole] = useState("CEO");
+  const [companyStart, setCompanyStart] = useState("Dec 1991");
+  const [companyEnd, setCompanyEnd] = useState("2011");
+  const [companyDescription, setCompanyDescription] = useState(
+    "Created the most innovative weapon technologies in history.",
+  );
 
-  const [email, setEmail] = useState("John.Smith@gmail.com");
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  const [role, setRole] = useState("Software Developer");
-  function handleRoleChange(e) {
-    setRole(e.target.value);
-  }
-
-  const [linkedIn, setLinkedIn] = useState("linkedIn.com/john.smith");
-  function handleLinkedInChange(e) {
-    setLinkedIn(e.target.value);
-  }
-
-  const [schoolName, setSchoolName] = useState("Princeton University");
-  function handleSchoolNameChange(e) {
-    setSchoolName(e.target.value);
-  }
-  const [schoolLocation, setSchoolLocation] = useState("Princeton, NJ");
-  function handleSchoolLocationChange(e) {
-    setSchoolLocation(e.target.value);
-  }
-  const [degree, setDegree] = useState("Computer Science");
-  function handleDegreeChange(e) {
-    setDegree(e.target.value);
-  }
-  const [schoolStart, setSchoolStart] = useState("Sept 2073");
-  function handleSchoolStartChange(e) {
-    setSchoolStart(e.target.value);
-  }
-  const [schoolEnd, setSchoolEnd] = useState("May 2077");
-  function handleSchoolEndChange(e) {
-    setSchoolEnd(e.target.value);
-  }
-
-  const [company, setCompany] = useState("");
-  function handleCompanyChange(e) {
-    setCompany(e.target.value);
-  }
-
-  const [companyLocation, setCompanyLocation] = useState("");
-  function handleCompanyLocationChange(e) {
-    setCompanyLocation(e.target.value);
-  }
-
-  const [companyRole, setCompanyRole] = useState("");
-  function handleCompanyRoleChange(e) {
-    setCompanyRole(e.target.value);
-  }
-
-  const [companyStart, setCompanyStart] = useState("");
-  function handleCompanyStartChange(e) {
-    setCompanyStart(e.target.value);
-  }
-
-  const [companyEnd, setCompanyEnd] = useState("");
-  function handleCompanyEndChange(e) {
-    setCompanyEnd(e.target.value);
-  }
-
-  const [companyDescription, setCompanyDescription] = useState("");
-  function handleCompanyDescriptionChange(e) {
-    setCompanyDescription(e.target.value);
+  function handleAllChanges(e) {
+    switch (e.target.id) {
+      case "fName-input":
+        setFirstName(e.target.value);
+        break;
+      case "lName-input":
+        setLastName(e.target.value);
+        break;
+      case "phone-input":
+        setPhoneNumber(e.target.value);
+        break;
+      case "email-input":
+        setEmail(e.target.value);
+        break;
+      case "location-input":
+        setLocation(e.target.value);
+        break;
+      case "role-input":
+        setRole(e.target.value);
+        break;
+      case "linkedIn-input":
+        setLinkedIn(e.target.value);
+        break;
+      case "school-name-input":
+        setSchoolName(e.target.value);
+        break;
+      case "school-location-input":
+        setSchoolLocation(e.target.value);
+        break;
+      case "school-degree-input":
+        setDegree(e.target.value);
+        break;
+      case "school-start-input":
+        setSchoolStart(e.target.value);
+        break;
+      case "school-end-input":
+        setSchoolEnd(e.target.value);
+        break;
+      case "company-name-input":
+        setCompany(e.target.value);
+        break;
+      case "company-location-input":
+        setCompanyLocation(e.target.value);
+        break;
+      case "company-role-input":
+        setCompanyRole(e.target.value);
+        break;
+      case "company-start-input":
+        setCompanyStart(e.target.value);
+        break;
+      case "company-end-input":
+        setCompanyEnd(e.target.value);
+        break;
+      case "company-description-input":
+        setCompanyDescription(e.target.value);
+        break;
+    }
   }
 
   const [educationArr, setEducationArr] = useState([]);
@@ -107,6 +108,23 @@ function App() {
       ? setEducationArr(educationArr.concat(arr))
       : setWorkArr(workArr.concat(arr));
   }
+
+  const resetForm = (form) => {
+    if (form === "education-form") {
+      setSchoolName("");
+      setSchoolLocation("");
+      setDegree("");
+      setSchoolStart("");
+      setSchoolEnd("");
+    } else {
+      setCompany("");
+      setCompanyLocation("");
+      setCompanyRole("");
+      setCompanyStart("");
+      setCompanyEnd("");
+      setCompanyDescription("");
+    }
+  };
 
   function submit(e) {
     e.preventDefault();
@@ -119,48 +137,31 @@ function App() {
 
     handleNewObj(e.target.id, submittedObj);
 
-    e.target.reset();
+    resetForm(e.target.id);
   }
 
   return (
     <div className="main-container">
       <EditSection
         firstName={firstName}
-        handleFirstNameChange={handleFirstNameChange}
         lastName={lastName}
-        handleLastNameChange={handleLastNameChange}
         phoneNumber={phoneNumber}
-        handlePhoneChange={handlePhoneChange}
         location={location}
-        handleLocationChange={handleLocationChange}
         email={email}
-        handleEmailChange={handleEmailChange}
         role={role}
-        handleRoleChange={handleRoleChange}
         linkedIn={linkedIn}
-        handleLinkedInChange={handleLinkedInChange}
+        handleChanges={handleAllChanges}
         schoolName={schoolName}
-        handleSchoolNameChange={handleSchoolNameChange}
         schoolLocation={schoolLocation}
-        handleSchoolLocationChange={handleSchoolLocationChange}
         degree={degree}
-        handleDegreeChange={handleDegreeChange}
         schoolStart={schoolStart}
-        handleSchoolStartChange={handleSchoolStartChange}
         schoolEnd={schoolEnd}
-        handleSchoolEndChange={handleSchoolEndChange}
         company={company}
-        handleCompanyChange={handleCompanyChange}
         companyLocation={companyLocation}
-        handleCompanyLocationChange={handleCompanyLocationChange}
         companyRole={companyRole}
-        handleCompanyRoleChange={handleCompanyRoleChange}
         companyStart={companyStart}
-        handleCompanyStartChange={handleCompanyStartChange}
         companyEnd={companyEnd}
-        handleCompanyEndChange={handleCompanyEndChange}
         companyDescription={companyDescription}
-        handleCompanyDescriptionChange={handleCompanyDescriptionChange}
         submit={submit}
       />
       <PreviewSection

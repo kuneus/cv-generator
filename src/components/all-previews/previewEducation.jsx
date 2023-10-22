@@ -1,14 +1,17 @@
+import { v4 as uuidv4 } from "uuid";
+import { Fragment } from "react";
+
 function CreateNewEducation({ educationArr }) {
   return (
     <ul className="preview-education-items">
       {educationArr.map((education) => (
-        <>
-          <li key={education[0]}>{education[0]}</li>
-          <li key={education[1]}>{education[1]}</li>
-          <li key={education[2]}>{education[2]}</li>
-          <li key={education[3]}>{education[3]}</li>
-          <li key={education[4]}>{education[4]}</li>
-        </>
+        <Fragment key={uuidv4()}>
+          <li>{education[0]}</li>
+          <li>{education[1]}</li>
+          <li>{education[2]}</li>
+          <li>{education[3]}</li>
+          <li>{education[4]}</li>
+        </Fragment>
       ))}
     </ul>
   );
@@ -25,6 +28,7 @@ export default function PreviewEducation({
   return (
     <div className="preview-education">
       <h1 className="preview-title">Education</h1>
+      <CreateNewEducation educationArr={educationArr} />
       <div className="preview-education-items">
         <div>{previewSchoolName}</div>
         <div>{previewSchoolLocation}</div>
@@ -32,7 +36,6 @@ export default function PreviewEducation({
         <div>{previewSchoolStart}</div>
         <div>{previewSchoolEnd}</div>
       </div>
-      <CreateNewEducation educationArr={educationArr} />
     </div>
   );
 }
