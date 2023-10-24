@@ -24,6 +24,10 @@ export default function EditSection({
   companyDescription,
   submit,
   handleChanges,
+  educationArr,
+  educationFormDisplay,
+  displayForm,
+  handleCancel,
 }) {
   return (
     <>
@@ -39,6 +43,8 @@ export default function EditSection({
           handleChanges={handleChanges}
         />
         <InputEditEducation
+          educationFormDisplay={educationFormDisplay}
+          displayForm={displayForm}
           schoolName={schoolName}
           schoolLocation={schoolLocation}
           degree={degree}
@@ -46,6 +52,8 @@ export default function EditSection({
           schoolEnd={schoolEnd}
           submitEducation={submit}
           handleChanges={handleChanges}
+          educationArr={educationArr}
+          handleCancel={handleCancel}
         />
         <InputEditWork
           company={company}

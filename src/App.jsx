@@ -3,15 +3,8 @@ import "./styles/App.css";
 import PreviewSection from "./components/previewSection";
 import EditSection from "./components/editSection";
 
-// let educationArr = [];
-
-// let workArr = [];
-
-const createInfo = ([...items]) => {
-  return { ...items };
-};
-
 function App() {
+  // personal section
   const [firstName, setFirstName] = useState("Anthony");
   const [lastName, setLastName] = useState("Stark");
   let fullName = firstName + " " + lastName;
@@ -22,6 +15,7 @@ function App() {
     "Genius, billionaire, playboy, philanthropist",
   );
   const [linkedIn, setLinkedIn] = useState("linkedIn.com/tony.stark");
+  // school section
   const [schoolName, setSchoolName] = useState(
     "Massachussetts Institute of Technology",
   );
@@ -31,6 +25,7 @@ function App() {
   );
   const [schoolStart, setSchoolStart] = useState("Sept 1984");
   const [schoolEnd, setSchoolEnd] = useState("May 1987");
+  // work section
   const [company, setCompany] = useState("Stark Industries");
   const [companyLocation, setCompanyLocation] = useState(
     "New York, New York, USA",
@@ -103,7 +98,7 @@ function App() {
 
   const [educationArr, setEducationArr] = useState([]);
   const [workArr, setWorkArr] = useState([]);
-  function handleNewObj(type, arr) {
+  function handleSubmission(type, arr) {
     type === "education-form"
       ? setEducationArr(educationArr.concat(arr))
       : setWorkArr(workArr.concat(arr));
@@ -130,14 +125,32 @@ function App() {
     e.preventDefault();
 
     let temp = [];
+    // add form items into array
     for (let i = 0; i < e.target.length; i++) {
       e.target[i].className !== "form-buttons" && temp.push(e.target[i].value);
     }
-    let submittedObj = createInfo(temp);
+    // turn array into object
+    let submittedObj = { ...temp };
 
-    handleNewObj(e.target.id, submittedObj);
-
+    handleSubmission(e.target.id, submittedObj);
     resetForm(e.target.id);
+    handleEducationFormDisplay();
+  }
+
+  const [educationFormDisplay, setEducationFormDisplay] = useState(true);
+  function handleEducationFormDisplay() {
+    educationFormDisplay
+      ? setEducationFormDisplay(false)
+      : setEducationFormDisplay(true);
+  }
+
+  function handleCancel(e) {
+    let targetForm;
+    e.target.id === "education-cancel-btn"
+      ? (targetForm = "education-form")
+      : (targetForm = "work-form");
+    handleEducationFormDisplay();
+    resetForm(targetForm);
   }
 
   return (
@@ -150,7 +163,6 @@ function App() {
         email={email}
         role={role}
         linkedIn={linkedIn}
-        handleChanges={handleAllChanges}
         schoolName={schoolName}
         schoolLocation={schoolLocation}
         degree={degree}
@@ -163,6 +175,11 @@ function App() {
         companyEnd={companyEnd}
         companyDescription={companyDescription}
         submit={submit}
+        handleChanges={handleAllChanges}
+        educationArr={educationArr}
+        displayForm={educationFormDisplay}
+        educationFormDisplay={handleEducationFormDisplay}
+        handleCancel={handleCancel}
       />
       <PreviewSection
         fullName={fullName}

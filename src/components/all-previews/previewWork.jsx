@@ -31,14 +31,14 @@ export default function PreviewWork({
     <div className="preview-work">
       <h1 className="preview-title">Work Experience</h1>
       <CreateNewWork workArr={workArr} />
-      <div className="preview-work-items">
-        <div>{previewCompanyName}</div>
-        <div>{previewCompanyLocation}</div>
-        <div>{previewCompanyRole}</div>
-        <div>{previewCompanyStart}</div>
-        <div>{previewCompanyEnd}</div>
-        <div>{previewCompanyDescription}</div>
-      </div>
+      <ul className="preview-work-items">
+        <li>{previewCompanyName}</li>
+        <li>{previewCompanyLocation}</li>
+        <li>{previewCompanyRole}</li>
+        <li>{previewCompanyStart}</li>
+        <li>{previewCompanyEnd}</li>
+        <li>{previewCompanyDescription}</li>
+      </ul>
     </div>
   );
 }

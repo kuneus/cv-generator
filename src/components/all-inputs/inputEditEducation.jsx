@@ -1,5 +1,18 @@
 import InputField from "./inputField";
 import FormButtons from "../formButtons";
+import { v4 as uuidv4 } from "uuid";
+
+function EducationList({ educationArr }) {
+  return (
+    <ul>
+      {educationArr.map((education) => (
+        <li key={uuidv4}>
+          <button>{education[0]}</button>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function InputEditEducation({
   schoolName,
@@ -9,12 +22,28 @@ export default function InputEditEducation({
   schoolEnd,
   submitEducation,
   handleChanges,
+  educationArr,
+  displayForm,
+  educationFormDisplay,
+  handleCancel,
 }) {
   return (
     <>
       <div className="card">
         <h1 className="card-title">Education</h1>
-        <form onSubmit={submitEducation} id="education-form">
+        <EducationList educationArr={educationArr} />
+        <button
+          style={{ display: displayForm ? "none" : "block" }}
+          onClick={educationFormDisplay}
+        >
+          Add Education
+        </button>
+        {/* WORK ON ADD EDUCATION BUTTON! */}
+        <form
+          onSubmit={submitEducation}
+          id="education-form"
+          style={{ display: displayForm ? "block" : "none" }}
+        >
           <InputField
             id="school-name-input"
             value={schoolName}
@@ -45,7 +74,11 @@ export default function InputEditEducation({
             onChange={handleChanges}
             label="End Month/Year"
           />
-          <FormButtons />
+          <FormButtons
+            cancel={handleCancel}
+            cancelId="education-cancel-btn"
+            deleteId="education-delete-btn"
+          />
         </form>
       </div>
     </>

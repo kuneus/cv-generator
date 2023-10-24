@@ -29,13 +29,13 @@ export default function PreviewEducation({
     <div className="preview-education">
       <h1 className="preview-title">Education</h1>
       <CreateNewEducation educationArr={educationArr} />
-      <div className="preview-education-items">
-        <div>{previewSchoolName}</div>
-        <div>{previewSchoolLocation}</div>
-        <div>{previewDegree}</div>
-        <div>{previewSchoolStart}</div>
-        <div>{previewSchoolEnd}</div>
-      </div>
+      <ul className="preview-education-items">
+        <li>{previewSchoolName}</li>
+        <li>{previewSchoolLocation}</li>
+        <li>{previewDegree}</li>
+        <li>{previewSchoolStart}</li>
+        <li>{previewSchoolEnd}</li>
+      </ul>
     </div>
   );
 }
