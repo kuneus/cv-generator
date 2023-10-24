@@ -30,6 +30,7 @@ export default function EditSection({
   handleCancel,
   workFormDisplay,
   handleWorkFormDisplay,
+  workArr,
 }) {
   return (
     <>
@@ -69,6 +70,7 @@ export default function EditSection({
           workFormDisplay={workFormDisplay}
           handleWorkFormDisplay={handleWorkFormDisplay}
           handleCancel={handleCancel}
+          workArr={workArr}
         />
       </div>
     </>

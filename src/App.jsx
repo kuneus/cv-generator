@@ -96,8 +96,11 @@ function App() {
     }
   }
 
+  // arrays to keep track of education and work inputs
   const [educationArr, setEducationArr] = useState([]);
   const [workArr, setWorkArr] = useState([]);
+
+  // new work or education form submitted
   function handleSubmission(type, arr) {
     type === "education-form"
       ? setEducationArr(educationArr.concat(arr))
@@ -111,6 +114,7 @@ function App() {
       setDegree("");
       setSchoolStart("");
       setSchoolEnd("");
+      handleEducationFormDisplay();
     } else {
       setCompany("");
       setCompanyLocation("");
@@ -118,6 +122,7 @@ function App() {
       setCompanyStart("");
       setCompanyEnd("");
       setCompanyDescription("");
+      handleWorkFormDisplay();
     }
   };
 
@@ -134,9 +139,9 @@ function App() {
 
     handleSubmission(e.target.id, submittedObj);
     resetForm(e.target.id);
-    handleEducationFormDisplay();
   }
 
+  // toggle display for education form
   const [educationFormDisplay, setEducationFormDisplay] = useState(true);
   function handleEducationFormDisplay() {
     educationFormDisplay
@@ -144,6 +149,7 @@ function App() {
       : setEducationFormDisplay(true);
   }
 
+  // toggle display for work form
   const [workFormDisplay, setWorkFormDisplay] = useState(true);
   function handleWorkFormDisplay() {
     workFormDisplay ? setWorkFormDisplay(false) : setWorkFormDisplay(true);
@@ -154,10 +160,8 @@ function App() {
 
     if (e.target.id === "education-cancel-btn") {
       targetForm = "education-form";
-      handleEducationFormDisplay();
     } else {
       targetForm = "work-form";
-      handleWorkFormDisplay();
     }
 
     resetForm(targetForm);
@@ -178,20 +182,21 @@ function App() {
         degree={degree}
         schoolStart={schoolStart}
         schoolEnd={schoolEnd}
+        educationArr={educationArr}
+        educationFormDisplay={educationFormDisplay}
+        handleEducationFormDisplay={handleEducationFormDisplay}
         company={company}
         companyLocation={companyLocation}
         companyRole={companyRole}
         companyStart={companyStart}
         companyEnd={companyEnd}
         companyDescription={companyDescription}
-        submit={submit}
-        handleChanges={handleAllChanges}
-        educationArr={educationArr}
-        educationFormDisplay={educationFormDisplay}
-        handleEducationFormDisplay={handleEducationFormDisplay}
-        handleCancel={handleCancel}
         workFormDisplay={workFormDisplay}
         handleWorkFormDisplay={handleWorkFormDisplay}
+        workArr={workArr}
+        submit={submit}
+        handleChanges={handleAllChanges}
+        handleCancel={handleCancel}
       />
       <PreviewSection
         fullName={fullName}

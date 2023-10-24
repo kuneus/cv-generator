@@ -1,5 +1,18 @@
 import InputField from "./inputField";
 import FormButtons from "../formButtons";
+import { v4 as uuidv4 } from "uuid";
+
+function WorkList({ workArr }) {
+  return (
+    <ul>
+      {workArr.map((work) => (
+        <li key={uuidv4}>
+          <button>{work[0]}</button>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function InputEditWork({
   company,
@@ -13,12 +26,13 @@ export default function InputEditWork({
   workFormDisplay,
   handleWorkFormDisplay,
   handleCancel,
+  workArr,
 }) {
   return (
     <>
       <div className="card">
         <h1 className="card-title">Work</h1>
-        {/* <WorkList educationArr={workArr} /> */}
+        <WorkList workArr={workArr} />
         <button
           style={{ display: workFormDisplay ? "none" : "block" }}
           onClick={handleWorkFormDisplay}
