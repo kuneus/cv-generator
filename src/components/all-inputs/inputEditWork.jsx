@@ -10,12 +10,26 @@ export default function InputEditWork({
   companyDescription,
   submitWork,
   handleChanges,
+  workFormDisplay,
+  handleWorkFormDisplay,
+  handleCancel,
 }) {
   return (
     <>
       <div className="card">
         <h1 className="card-title">Work</h1>
-        <form onSubmit={submitWork} id="work-form">
+        {/* <WorkList educationArr={workArr} /> */}
+        <button
+          style={{ display: workFormDisplay ? "none" : "block" }}
+          onClick={handleWorkFormDisplay}
+        >
+          Add Work
+        </button>
+        <form
+          onSubmit={submitWork}
+          id="work-form"
+          style={{ display: workFormDisplay ? "block" : "none" }}
+        >
           <InputField
             id="company-name-input"
             value={company}
@@ -54,7 +68,11 @@ export default function InputEditWork({
               onChange={handleChanges}
             />
           </div>
-          <FormButtons />
+          <FormButtons
+            cancelId="work-cancel-btn"
+            cancel={handleCancel}
+            deleteId="work-delete-btn"
+          />
         </form>
       </div>
     </>

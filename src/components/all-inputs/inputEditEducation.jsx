@@ -23,8 +23,8 @@ export default function InputEditEducation({
   submitEducation,
   handleChanges,
   educationArr,
-  displayForm,
   educationFormDisplay,
+  handleEducationFormDisplay,
   handleCancel,
 }) {
   return (
@@ -33,8 +33,8 @@ export default function InputEditEducation({
         <h1 className="card-title">Education</h1>
         <EducationList educationArr={educationArr} />
         <button
-          style={{ display: displayForm ? "none" : "block" }}
-          onClick={educationFormDisplay}
+          style={{ display: educationFormDisplay ? "none" : "block" }}
+          onClick={handleEducationFormDisplay}
         >
           Add Education
         </button>
@@ -42,7 +42,7 @@ export default function InputEditEducation({
         <form
           onSubmit={submitEducation}
           id="education-form"
-          style={{ display: displayForm ? "block" : "none" }}
+          style={{ display: educationFormDisplay ? "block" : "none" }}
         >
           <InputField
             id="school-name-input"

@@ -144,12 +144,22 @@ function App() {
       : setEducationFormDisplay(true);
   }
 
+  const [workFormDisplay, setWorkFormDisplay] = useState(true);
+  function handleWorkFormDisplay() {
+    workFormDisplay ? setWorkFormDisplay(false) : setWorkFormDisplay(true);
+  }
+
   function handleCancel(e) {
     let targetForm;
-    e.target.id === "education-cancel-btn"
-      ? (targetForm = "education-form")
-      : (targetForm = "work-form");
-    handleEducationFormDisplay();
+
+    if (e.target.id === "education-cancel-btn") {
+      targetForm = "education-form";
+      handleEducationFormDisplay();
+    } else {
+      targetForm = "work-form";
+      handleWorkFormDisplay();
+    }
+
     resetForm(targetForm);
   }
 
@@ -177,9 +187,11 @@ function App() {
         submit={submit}
         handleChanges={handleAllChanges}
         educationArr={educationArr}
-        displayForm={educationFormDisplay}
-        educationFormDisplay={handleEducationFormDisplay}
+        educationFormDisplay={educationFormDisplay}
+        handleEducationFormDisplay={handleEducationFormDisplay}
         handleCancel={handleCancel}
+        workFormDisplay={workFormDisplay}
+        handleWorkFormDisplay={handleWorkFormDisplay}
       />
       <PreviewSection
         fullName={fullName}
