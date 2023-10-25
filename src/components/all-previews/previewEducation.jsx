@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { Fragment } from "react";
 
-function CreateNewEducation({ educationArr }) {
+function EducationList({ educationArr }) {
   return (
     <ul className="preview-education-items">
       {educationArr.map((education) => (
@@ -28,7 +28,7 @@ export default function PreviewEducation({
   return (
     <div className="preview-education">
       <h1 className="preview-title">Education</h1>
-      <CreateNewEducation educationArr={educationArr} />
+      <EducationList educationArr={educationArr} />
       <ul className="preview-education-items">
         <li>{previewSchoolName}</li>
         <li>{previewSchoolLocation}</li>

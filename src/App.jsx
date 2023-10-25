@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./styles/App.css";
 import PreviewSection from "./components/previewSection";
 import EditSection from "./components/editSection";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   // personal section
@@ -136,6 +137,8 @@ function App() {
     }
     // turn array into object
     let submittedObj = { ...temp };
+    // add unique id to obj
+    submittedObj.id = uuidv4();
 
     handleSubmission(e.target.id, submittedObj);
     resetForm(e.target.id);
@@ -157,15 +160,59 @@ function App() {
 
   function handleCancel(e) {
     let targetForm;
-
-    if (e.target.id === "education-cancel-btn") {
-      targetForm = "education-form";
-    } else {
-      targetForm = "work-form";
-    }
+    // determine which form was clicked
+    e.target.id === "education-cancel-btn"
+      ? (targetForm = "education-form")
+      : (targetForm = "work-form");
 
     resetForm(targetForm);
   }
+
+  function populateEducationInput(obj) {
+    setSchoolName(obj[0]);
+    setSchoolLocation(obj[1]);
+    setDegree(obj[2]);
+    setSchoolStart(obj[3]);
+    setSchoolEnd(obj[4]);
+  }
+
+  function populateWorkInput(obj) {
+    setCompany(obj[0]);
+    setCompanyLocation(obj[1]);
+    setCompanyRole(obj[2]);
+    setCompanyStart(obj[3]);
+    setCompanyEnd(obj[4]);
+    setCompanyDescription(obj[5]);
+  }
+
+  // **** CONTINUE THIS ****
+  function editItem(e) {
+    let itemId = e.target.id;
+    console.log(itemId);
+    let selectedObj;
+
+    // determine if education or work item clicked
+    if (e.target.className === "education-item") {
+      // education actions
+      setEducationFormDisplay(true);
+      educationArr.forEach(
+        (education) => education.id === itemId && (selectedObj = education),
+      );
+      populateEducationInput(selectedObj);
+    } else {
+      // work item
+      setWorkFormDisplay(true);
+      workArr.forEach((work) => work.id === itemId && (selectedObj = work));
+      populateWorkInput(selectedObj);
+    }
+  }
+
+  // need functions for handling clicking of education or work
+  // buttons
+  // button clicked =>
+  //    handle form display
+  //    populate input form with object's info
+  //        find object in array
 
   return (
     <div className="main-container">
@@ -183,6 +230,7 @@ function App() {
         schoolStart={schoolStart}
         schoolEnd={schoolEnd}
         educationArr={educationArr}
+        editEducationItem={editItem}
         educationFormDisplay={educationFormDisplay}
         handleEducationFormDisplay={handleEducationFormDisplay}
         company={company}
@@ -197,6 +245,7 @@ function App() {
         submit={submit}
         handleChanges={handleAllChanges}
         handleCancel={handleCancel}
+        editWorkItem={editItem}
       />
       <PreviewSection
         fullName={fullName}

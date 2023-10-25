@@ -2,12 +2,18 @@ import InputField from "./inputField";
 import FormButtons from "../formButtons";
 import { v4 as uuidv4 } from "uuid";
 
-function EducationList({ educationArr }) {
+function EducationList({ educationArr, editEducationItem }) {
   return (
     <ul>
       {educationArr.map((education) => (
-        <li key={uuidv4}>
-          <button>{education[0]}</button>
+        <li key={education.id}>
+          <button
+            id={education.id}
+            className="education-item"
+            onClick={editEducationItem}
+          >
+            {education[0]}
+          </button>
         </li>
       ))}
     </ul>
@@ -26,12 +32,16 @@ export default function InputEditEducation({
   educationFormDisplay,
   handleEducationFormDisplay,
   handleCancel,
+  editEducationItem,
 }) {
   return (
     <>
       <div className="card">
         <h1 className="card-title">Education</h1>
-        <EducationList educationArr={educationArr} />
+        <EducationList
+          educationArr={educationArr}
+          editEducationItem={editEducationItem}
+        />
         <button
           style={{ display: educationFormDisplay ? "none" : "block" }}
           onClick={handleEducationFormDisplay}
