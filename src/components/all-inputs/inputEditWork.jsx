@@ -26,7 +26,7 @@ export default function InputEditWork({
   submitWork,
   handleChanges,
   workFormDisplay,
-  handleWorkFormDisplay,
+  addWork,
   handleCancel,
   workArr,
   editWorkItem,
@@ -38,7 +38,7 @@ export default function InputEditWork({
         <WorkList workArr={workArr} editWorkItem={editWorkItem} />
         <button
           style={{ display: workFormDisplay ? "none" : "block" }}
-          onClick={handleWorkFormDisplay}
+          onClick={addWork}
         >
           Add Work
         </button>

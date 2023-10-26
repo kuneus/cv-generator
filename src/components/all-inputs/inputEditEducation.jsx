@@ -1,6 +1,5 @@
 import InputField from "./inputField";
 import FormButtons from "../formButtons";
-import { v4 as uuidv4 } from "uuid";
 
 function EducationList({ educationArr, editEducationItem }) {
   return (
@@ -30,7 +29,7 @@ export default function InputEditEducation({
   handleChanges,
   educationArr,
   educationFormDisplay,
-  handleEducationFormDisplay,
+  addEducation,
   handleCancel,
   editEducationItem,
 }) {
@@ -44,7 +43,7 @@ export default function InputEditEducation({
         />
         <button
           style={{ display: educationFormDisplay ? "none" : "block" }}
-          onClick={handleEducationFormDisplay}
+          onClick={addEducation}
         >
           Add Education
         </button>

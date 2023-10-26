@@ -131,31 +131,40 @@ function App() {
     e.preventDefault();
 
     let temp = [];
-    // add form items into array
     for (let i = 0; i < e.target.length; i++) {
       e.target[i].className !== "form-buttons" && temp.push(e.target[i].value);
     }
-    // turn array into object
     let submittedObj = { ...temp };
-    // add unique id to obj
     submittedObj.id = uuidv4();
 
     handleSubmission(e.target.id, submittedObj);
     resetForm(e.target.id);
   }
 
-  // toggle display for education form
+  // toggle display for education or work form
   const [educationFormDisplay, setEducationFormDisplay] = useState(true);
+  const [workFormDisplay, setWorkFormDisplay] = useState(true);
   function handleEducationFormDisplay() {
     educationFormDisplay
       ? setEducationFormDisplay(false)
       : setEducationFormDisplay(true);
   }
-
-  // toggle display for work form
-  const [workFormDisplay, setWorkFormDisplay] = useState(true);
   function handleWorkFormDisplay() {
     workFormDisplay ? setWorkFormDisplay(false) : setWorkFormDisplay(true);
+  }
+
+  // toggle between saving existing item or adding new item
+  const [saveOrSubmitEducation, setSaveOrSubmitEducation] = useState("submit");
+  const [saveOrSubmitWork, setSaveOrSubmitWork] = useState("submit");
+
+  // add education or work onClick event
+  function addEducation() {
+    setSaveOrSubmitEducation("submit");
+    handleEducationFormDisplay();
+  }
+  function addWork() {
+    setSaveOrSubmitWork("submit");
+    handleWorkFormDisplay();
   }
 
   function handleCancel(e) {
@@ -168,6 +177,7 @@ function App() {
     resetForm(targetForm);
   }
 
+  // populate input form with obj info
   function populateEducationInput(obj) {
     setSchoolName(obj[0]);
     setSchoolLocation(obj[1]);
@@ -175,7 +185,6 @@ function App() {
     setSchoolStart(obj[3]);
     setSchoolEnd(obj[4]);
   }
-
   function populateWorkInput(obj) {
     setCompany(obj[0]);
     setCompanyLocation(obj[1]);
@@ -185,34 +194,80 @@ function App() {
     setCompanyDescription(obj[5]);
   }
 
-  // **** CONTINUE THIS ****
+  // store selected item's id for later finding
+  const [currentEducationItemId, setCurrentEducationItemId] = useState();
+  const [currentWorkItemId, setCurrentWorkItemId] = useState();
+
+  // edit work or education item
   function editItem(e) {
     let itemId = e.target.id;
-    console.log(itemId);
+
     let selectedObj;
 
-    // determine if education or work item clicked
+    // first, display respective form input
+    // then find matching obj in respective array
+    // then populate form input with obj values
     if (e.target.className === "education-item") {
-      // education actions
       setEducationFormDisplay(true);
       educationArr.forEach(
         (education) => education.id === itemId && (selectedObj = education),
       );
       populateEducationInput(selectedObj);
+      setCurrentEducationItemId(itemId);
+      setSaveOrSubmitEducation("save");
     } else {
-      // work item
       setWorkFormDisplay(true);
       workArr.forEach((work) => work.id === itemId && (selectedObj = work));
       populateWorkInput(selectedObj);
+      setCurrentWorkItemId(itemId);
+      setSaveOrSubmitWork("save");
     }
   }
 
-  // need functions for handling clicking of education or work
-  // buttons
-  // button clicked =>
-  //    handle form display
-  //    populate input form with object's info
-  //        find object in array
+  // when existing item is saved
+  function saveItem(e) {
+    e.preventDefault();
+    console.log("item is saved!");
+
+    let temp = [];
+    for (let i = 0; i < e.target.length; i++) {
+      e.target[i].className !== "form-buttons" && temp.push(e.target[i].value);
+    }
+    let submittedObj = { ...temp };
+
+    // find matching object then update original object
+    if (e.target.id === "education-form") {
+      educationArr.forEach(
+        (item) =>
+          item.id === currentEducationItemId &&
+          updateEducationObj(item, submittedObj),
+      );
+    } else {
+      workArr.forEach(
+        (item) =>
+          item.id === currentWorkItemId && updateWorkObj(item, submittedObj),
+      );
+    }
+    resetForm(e.target.id);
+  }
+
+  // update object in education or work array
+  function updateEducationObj(obj, updatedInputObj) {
+    obj[0] = updatedInputObj[0];
+    obj[1] = updatedInputObj[1];
+    obj[2] = updatedInputObj[2];
+    obj[3] = updatedInputObj[3];
+    obj[4] = updatedInputObj[4];
+  }
+
+  function updateWorkObj(obj, updatedInputObj) {
+    obj[0] = updatedInputObj[0];
+    obj[1] = updatedInputObj[1];
+    obj[2] = updatedInputObj[2];
+    obj[3] = updatedInputObj[3];
+    obj[4] = updatedInputObj[4];
+    obj[5] = updatedInputObj[5];
+  }
 
   return (
     <div className="main-container">
@@ -232,7 +287,8 @@ function App() {
         educationArr={educationArr}
         editEducationItem={editItem}
         educationFormDisplay={educationFormDisplay}
-        handleEducationFormDisplay={handleEducationFormDisplay}
+        addEducation={addEducation}
+        submitEducation={saveOrSubmitEducation === "submit" ? submit : saveItem}
         company={company}
         companyLocation={companyLocation}
         companyRole={companyRole}
@@ -240,9 +296,9 @@ function App() {
         companyEnd={companyEnd}
         companyDescription={companyDescription}
         workFormDisplay={workFormDisplay}
-        handleWorkFormDisplay={handleWorkFormDisplay}
+        addWork={addWork}
         workArr={workArr}
-        submit={submit}
+        submitWork={saveOrSubmitWork === "submit" ? submit : saveItem}
         handleChanges={handleAllChanges}
         handleCancel={handleCancel}
         editWorkItem={editItem}

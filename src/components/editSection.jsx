@@ -16,20 +16,21 @@ export default function EditSection({
   degree,
   schoolStart,
   schoolEnd,
+  submitEducation,
   company,
   companyLocation,
   companyRole,
   companyStart,
   companyEnd,
   companyDescription,
-  submit,
+  submitWork,
   handleChanges,
   educationArr,
-  handleEducationFormDisplay,
+  addEducation,
   educationFormDisplay,
   handleCancel,
   workFormDisplay,
-  handleWorkFormDisplay,
+  addWork,
   workArr,
   editEducationItem,
   editWorkItem,
@@ -48,21 +49,21 @@ export default function EditSection({
           handleChanges={handleChanges}
         />
         <InputEditEducation
-          handleEducationFormDisplay={handleEducationFormDisplay}
+          addEducation={addEducation}
           educationFormDisplay={educationFormDisplay}
           schoolName={schoolName}
           schoolLocation={schoolLocation}
           degree={degree}
           schoolStart={schoolStart}
           schoolEnd={schoolEnd}
-          submitEducation={submit}
+          submitEducation={submitEducation}
           handleChanges={handleChanges}
           handleCancel={handleCancel}
           educationArr={educationArr}
           editEducationItem={editEducationItem}
         />
         <InputEditWork
-          handleWorkFormDisplay={handleWorkFormDisplay}
+          addWork={addWork}
           workFormDisplay={workFormDisplay}
           company={company}
           companyLocation={companyLocation}
@@ -70,7 +71,7 @@ export default function EditSection({
           companyStart={companyStart}
           companyEnd={companyEnd}
           companyDescription={companyDescription}
-          submitWork={submit}
+          submitWork={submitWork}
           handleChanges={handleChanges}
           handleCancel={handleCancel}
           workArr={workArr}
