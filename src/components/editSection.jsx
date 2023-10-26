@@ -34,6 +34,7 @@ export default function EditSection({
   workArr,
   editEducationItem,
   editWorkItem,
+  deleteItem,
 }) {
   return (
     <>
@@ -61,6 +62,7 @@ export default function EditSection({
           handleCancel={handleCancel}
           educationArr={educationArr}
           editEducationItem={editEducationItem}
+          deleteEducationItem={deleteItem}
         />
         <InputEditWork
           addWork={addWork}
@@ -76,6 +78,7 @@ export default function EditSection({
           handleCancel={handleCancel}
           workArr={workArr}
           editWorkItem={editWorkItem}
+          deleteWorkItem={deleteItem}
         />
       </div>
     </>

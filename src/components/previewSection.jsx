@@ -14,17 +14,8 @@ export default function PreviewSection({
   previewLocation,
   previewRole,
   previewLinkedIn,
-  previewSchoolName,
-  previewSchoolLocation,
-  previewDegree,
-  previewSchoolStart,
-  previewSchoolEnd,
-  previewCompanyName,
-  previewCompanyLocation,
-  previewCompanyRole,
-  previewCompanyStart,
-  previewCompanyEnd,
-  previewCompanyDescription,
+  schoolInfo,
+  workInfo,
   educationArr,
   workArr,
 }) {
@@ -39,20 +30,20 @@ export default function PreviewSection({
         previewLinkedIn={previewLinkedIn}
       />
       <PreviewEducation
-        previewSchoolName={previewSchoolName}
-        previewSchoolLocation={previewSchoolLocation}
-        previewDegree={previewDegree}
-        previewSchoolStart={previewSchoolStart}
-        previewSchoolEnd={previewSchoolEnd}
+        previewSchoolName={schoolInfo.schoolName}
+        previewSchoolLocation={schoolInfo.schoolLocation}
+        previewDegree={schoolInfo.degree}
+        previewSchoolStart={schoolInfo.schoolStart}
+        previewSchoolEnd={schoolInfo.schoolEnd}
         educationArr={educationArr}
       />
       <PreviewWork
-        previewCompanyName={previewCompanyName}
-        previewCompanyLocation={previewCompanyLocation}
-        previewCompanyRole={previewCompanyRole}
-        previewCompanyStart={previewCompanyStart}
-        previewCompanyEnd={previewCompanyEnd}
-        previewCompanyDescription={previewCompanyDescription}
+        previewCompanyName={workInfo.company}
+        previewCompanyLocation={workInfo.companyLocation}
+        previewCompanyRole={workInfo.companyRole}
+        previewCompanyStart={workInfo.companyStart}
+        previewCompanyEnd={workInfo.companyEnd}
+        previewCompanyDescription={workInfo.companyDescription}
         workArr={workArr}
       />
     </div>

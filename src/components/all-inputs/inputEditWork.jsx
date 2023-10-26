@@ -30,6 +30,7 @@ export default function InputEditWork({
   handleCancel,
   workArr,
   editWorkItem,
+  deleteWorkItem,
 }) {
   return (
     <>
@@ -86,8 +87,9 @@ export default function InputEditWork({
             />
           </div>
           <FormButtons
-            cancelId="work-cancel-btn"
             cancel={handleCancel}
+            deleteItem={deleteWorkItem}
+            cancelId="work-cancel-btn"
             deleteId="work-delete-btn"
           />
         </form>

@@ -1,7 +1,7 @@
 export default function FormButtons({
   save,
   cancel,
-  deleteBtn,
+  deleteItem,
   cancelId,
   deleteId,
 }) {
@@ -20,7 +20,7 @@ export default function FormButtons({
       </button>
       <button
         type="button"
-        onClick={deleteBtn}
+        onClick={deleteItem}
         className="form-buttons"
         id={deleteId}
       >

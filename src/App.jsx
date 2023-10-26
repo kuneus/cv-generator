@@ -269,6 +269,62 @@ function App() {
     obj[5] = updatedInputObj[5];
   }
 
+  const schoolInfo = {
+    schoolName,
+    schoolLocation,
+    degree,
+    schoolStart,
+    schoolEnd,
+  };
+
+  const workInfo = {
+    company,
+    companyLocation,
+    companyRole,
+    companyStart,
+    companyEnd,
+    companyDescription,
+  };
+
+  // delete selected item
+  function deleteItem(e) {
+    let targetForm;
+
+    console.log(e.target.id);
+    if (e.target.id === "education-delete-btn") {
+      targetForm = "education-form";
+      // if in edit item mode, find item in array and delete it
+      if (saveOrSubmitEducation === "save") {
+        for (let i = 0; i < educationArr.length; i++) {
+          if (educationArr[i].id === currentEducationItemId) {
+            educationArr.splice(i, 1);
+            break;
+          }
+        }
+      }
+    } else {
+      targetForm = "work-form";
+
+      if (saveOrSubmitWork === "save") {
+        for (let i = 0; i < workArr.length; i++) {
+          if (workArr[i].id === currentWorkItemId) {
+            workArr.splice(i, 1);
+            break;
+          }
+        }
+      }
+    }
+
+    resetForm(targetForm);
+  }
+
+  // **** NEXT: create delete functionality
+  // 1. delete function
+  // 2. check which delete button clicked
+  // 3. check if new submission or editing a current item
+  // 4a. if new submission, cancel and clear form
+  // 4b. if editing current item, delete obj from array and clear form
+
   return (
     <div className="main-container">
       <EditSection
@@ -302,6 +358,7 @@ function App() {
         handleChanges={handleAllChanges}
         handleCancel={handleCancel}
         editWorkItem={editItem}
+        deleteItem={deleteItem}
       />
       <PreviewSection
         fullName={fullName}
@@ -310,17 +367,8 @@ function App() {
         previewLocation={location}
         previewRole={role}
         previewLinkedIn={linkedIn}
-        previewSchoolName={schoolName}
-        previewSchoolLocation={schoolLocation}
-        previewDegree={degree}
-        previewSchoolStart={schoolStart}
-        previewSchoolEnd={schoolEnd}
-        previewCompanyName={company}
-        previewCompanyLocation={companyLocation}
-        previewCompanyRole={companyRole}
-        previewCompanyStart={companyStart}
-        previewCompanyEnd={companyEnd}
-        previewCompanyDescription={companyDescription}
+        schoolInfo={saveOrSubmitEducation === "submit" && schoolInfo}
+        workInfo={saveOrSubmitWork === "submit" && workInfo}
         educationArr={educationArr}
         workArr={workArr}
       />
@@ -329,34 +377,3 @@ function App() {
 }
 
 export default App;
-
-/*
-
-Create a new React project.
-Think about how to structure your application into components. 
-Your application should include:
-
-- A section to add general information like name, 
-    email and phone number.
-- A section to add your educational experience (school name, 
-    title of study and date of study)
-- A section to add practical experience (company name, position 
-    title, main responsibilities of your jobs, date from and until
-    when you worked for that company)
-- Be sure to include an edit and submit button for each section or 
-    for the whole CV. The submit button should submit your form and 
-    display the value of your input fields in HTML elements. The edit 
-    button should add back (display) the input fields, with the
-    previously displayed information as values. In those input 
-    fields, you should be able to edit and resubmit the content. 
-    You’re going to make heavy use of state and props, so make sure 
-    you understood those concepts.
-- Create a components directory under your src directory and add 
-    your components.
-- Include a styles directory under your src directory for your CSS 
-    files. You’ll need to import these in the component files to use 
-    them.
-- Push the results and deploy them with any of the options mentioned below!
-
-
-*/

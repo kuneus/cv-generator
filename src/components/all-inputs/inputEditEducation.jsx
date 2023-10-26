@@ -32,6 +32,7 @@ export default function InputEditEducation({
   addEducation,
   handleCancel,
   editEducationItem,
+  deleteEducationItem,
 }) {
   return (
     <>
@@ -85,6 +86,7 @@ export default function InputEditEducation({
           />
           <FormButtons
             cancel={handleCancel}
+            deleteItem={deleteEducationItem}
             cancelId="education-cancel-btn"
             deleteId="education-delete-btn"
           />
