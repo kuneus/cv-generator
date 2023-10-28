@@ -4,7 +4,7 @@ import "../../styles/inputEducation.css";
 
 function EducationList({ educationArr, editEducationItem }) {
   return (
-    <ul>
+    <ul className="submitted-list">
       {educationArr.map((education) => (
         <li key={education.id}>
           <button
@@ -46,6 +46,7 @@ export default function InputEditEducation({
         <button
           style={{ display: educationFormDisplay ? "none" : "grid" }}
           onClick={addEducation}
+          className="add-new-btn"
         >
           Add Education
         </button>

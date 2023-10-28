@@ -29,6 +29,13 @@
 #work-form div:nth-child(6) {
   grid-area: desc;
 }
-.form-buttons-cont {
+#work-form .form-buttons-cont {
   grid-area: btn;
+}
+
+#work-form textarea {
+  border-radius: 10px;
+  border-style: none;
+  resize: none;
+  background-color: rgb(228, 227, 227);
 }

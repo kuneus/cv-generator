@@ -4,7 +4,7 @@ import "../../styles/inputWork.css";
 
 function WorkList({ workArr, editWorkItem }) {
   return (
-    <ul>
+    <ul className="submitted-list">
       {workArr.map((work) => (
         <li key={work.id}>
           <button className="work-item" id={work.id} onClick={editWorkItem}>
@@ -40,6 +40,7 @@ export default function InputEditWork({
         <button
           style={{ display: workFormDisplay ? "none" : "grid" }}
           onClick={addWork}
+          className="add-new-btn"
         >
           Add Work
         </button>

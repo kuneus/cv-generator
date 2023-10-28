@@ -1,6 +1,6 @@
 /* left-half of page */
 .left-container {
-  background-color: rgb(10, 12, 106);
+  background-color: rgb(44, 44, 44);
   height: 100%;
   width: 50vw;
   display: flex;
@@ -12,8 +12,8 @@
   overflow-y: scroll;
   height: 100vh;
   padding: 20px;
-  display: grid;
-  grid-template-rows: auto;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -28,21 +28,76 @@
 
 .card {
   width: 90%;
-  background-color: rgb(195, 195, 247);
-  box-shadow: 0px 0px 5px 2px rgb(161, 161, 161);
+  background-color: rgb(196, 196, 196);
+  box-shadow: 0px 0px 15px 2px rgb(56, 56, 56);
   padding: 10px;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: fit-content;
 }
 
 /* Card titles */
 .card > h1 {
   font-size: 3rem;
-  color: blue;
+  color: rgb(0, 0, 0);
 }
 
-/* .card > ul > li {
+.form-buttons-cont {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.form-buttons-cont button {
+  height: 30px;
+  border-radius: 5px;
+}
+
+/* save button */
+.form-buttons-cont button:first-child {
+  background-color: rgb(11, 173, 11);
+  color: white;
+}
+/* cancel button */
+.form-buttons-cont button:nth-child(2) {
+  background-color: transparent;
+  border: solid 1px rgb(124, 124, 124);
+  color: rgb(100, 100, 100);
+}
+/* delete button */
+.form-buttons-cont button:nth-child(3) {
+  background-color: transparent;
+  border: solid 1px rgb(124, 124, 124);
+  color: rgb(101, 101, 101);
+}
+
+/* list of submitted items */
+.submitted-list {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: clamp(150px, 30%, 400px);
-  background-color: red;
-} */
+  gap: 3px;
+}
+
+/* buttons for each submitted item */
+.submitted-list button {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgb(44, 44, 44);
+  color: white;
+}
+
+/* button for adding new item */
+.add-new-btn {
+  border-radius: 5px;
+  width: 150px;
+  height: 30px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  background-color: rgb(71, 71, 217);
+  color: white;
+}
