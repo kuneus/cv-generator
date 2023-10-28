@@ -1,6 +1,6 @@
 import InputField from "./inputField";
 import FormButtons from "../formButtons";
-import { v4 as uuidv4 } from "uuid";
+import "../../styles/inputWork.css";
 
 function WorkList({ workArr, editWorkItem }) {
   return (
@@ -38,7 +38,7 @@ export default function InputEditWork({
         <h1 className="card-title">Work</h1>
         <WorkList workArr={workArr} editWorkItem={editWorkItem} />
         <button
-          style={{ display: workFormDisplay ? "none" : "block" }}
+          style={{ display: workFormDisplay ? "none" : "grid" }}
           onClick={addWork}
         >
           Add Work
@@ -46,7 +46,7 @@ export default function InputEditWork({
         <form
           onSubmit={submitWork}
           id="work-form"
-          style={{ display: workFormDisplay ? "block" : "none" }}
+          style={{ display: workFormDisplay ? "grid" : "none" }}
         >
           <InputField
             id="company-name-input"
@@ -78,7 +78,7 @@ export default function InputEditWork({
             onChange={handleChanges}
             label="End Month/Year"
           />
-          <div>
+          <div className="input-field">
             <label htmlFor="company-description-input">Description</label>
             <textarea
               id="company-description-input"
@@ -97,5 +97,3 @@ export default function InputEditWork({
     </>
   );
 }
-
-// create work form

@@ -1,16 +1,48 @@
-.edit-section {
+/* left-half of page */
+.left-container {
   background-color: gray;
   height: 100%;
   width: 50vw;
+  display: flex;
+  justify-content: flex-end;
 }
 
+.edit-section {
+  width: max(50%, 350px);
+  background-color: rgb(249, 249, 249);
+  overflow-y: scroll;
+  height: 100vh;
+  padding-left: 20px;
+  display: grid;
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+.edit-section::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.edit-section::-webkit-scrollbar-thumb {
+  background-color: rgb(232, 232, 232);
+  border-radius: 10px;
+}
+
+.card {
+  width: 90%;
+  box-shadow: 0px 0px 5px 2px rgb(161, 161, 161);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Card titles */
 .card > h1 {
   font-size: 3rem;
   color: blue;
 }
 
-.card > ul > li {
+/* .card > ul > li {
   display: flex;
   flex-direction: column;
   width: clamp(150px, 30%, 400px);
-}
+  background-color: red;
+} */

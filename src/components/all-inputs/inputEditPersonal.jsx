@@ -1,4 +1,5 @@
 import InputField from "./inputField";
+import "../../styles/inputPersonal.css";
 
 export default function InputEditPersonal({
   firstName,
@@ -7,12 +8,11 @@ export default function InputEditPersonal({
   location,
   email,
   role,
-  linkedIn,
   handleChanges,
 }) {
   return (
     <>
-      <div className="card">
+      <div className="card personal-input">
         <h1 className="card-title">Personal</h1>
         <ul>
           <InputField
@@ -52,12 +52,6 @@ export default function InputEditPersonal({
             value={role}
             onChange={handleChanges}
             label="Current Role"
-          />
-          <InputField
-            id="linkedIn-input"
-            value={linkedIn}
-            onChange={handleChanges}
-            label="LinkedIn URL"
           />
         </ul>
       </div>

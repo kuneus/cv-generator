@@ -15,7 +15,6 @@ function App() {
   const [role, setRole] = useState(
     "Genius, billionaire, playboy, philanthropist",
   );
-  const [linkedIn, setLinkedIn] = useState("linkedIn.com/tony.stark");
   // school section
   const [schoolName, setSchoolName] = useState(
     "Massachussetts Institute of Technology",
@@ -57,9 +56,6 @@ function App() {
         break;
       case "role-input":
         setRole(e.target.value);
-        break;
-      case "linkedIn-input":
-        setLinkedIn(e.target.value);
         break;
       case "school-name-input":
         setSchoolName(e.target.value);
@@ -127,6 +123,7 @@ function App() {
     }
   };
 
+  // new work or education item is submitted
   function submit(e) {
     e.preventDefault();
 
@@ -304,7 +301,6 @@ function App() {
       }
     } else {
       targetForm = "work-form";
-
       if (saveOrSubmitWork === "save") {
         for (let i = 0; i < workArr.length; i++) {
           if (workArr[i].id === currentWorkItemId) {
@@ -318,13 +314,6 @@ function App() {
     resetForm(targetForm);
   }
 
-  // **** NEXT: create delete functionality
-  // 1. delete function
-  // 2. check which delete button clicked
-  // 3. check if new submission or editing a current item
-  // 4a. if new submission, cancel and clear form
-  // 4b. if editing current item, delete obj from array and clear form
-
   return (
     <div className="main-container">
       <EditSection
@@ -334,7 +323,6 @@ function App() {
         location={location}
         email={email}
         role={role}
-        linkedIn={linkedIn}
         schoolName={schoolName}
         schoolLocation={schoolLocation}
         degree={degree}
@@ -366,7 +354,6 @@ function App() {
         previewEmail={email}
         previewLocation={location}
         previewRole={role}
-        previewLinkedIn={linkedIn}
         schoolInfo={saveOrSubmitEducation === "submit" && schoolInfo}
         workInfo={saveOrSubmitWork === "submit" && workInfo}
         educationArr={educationArr}

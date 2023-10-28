@@ -1,0 +1,7 @@
+.personal-input ul {
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: repeat(2, max(45%, 110px));
+  column-gap: 20px;
+  row-gap: 10px;
+}

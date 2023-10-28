@@ -13,7 +13,6 @@ export default function PreviewSection({
   previewEmail,
   previewLocation,
   previewRole,
-  previewLinkedIn,
   schoolInfo,
   workInfo,
   educationArr,
@@ -27,7 +26,6 @@ export default function PreviewSection({
         previewEmail={previewEmail}
         previewLocation={previewLocation}
         previewRole={previewRole}
-        previewLinkedIn={previewLinkedIn}
       />
       <PreviewEducation
         previewSchoolName={schoolInfo.schoolName}

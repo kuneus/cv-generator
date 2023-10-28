@@ -1,0 +1,32 @@
+#education-form {
+  border-radius: 15px;
+  display: grid;
+  grid-template-areas:
+    "name name"
+    "city city"
+    "degree degree"
+    "schoolStart schoolEnd"
+    "btn btn";
+  row-gap: 10px;
+  column-gap: 20px;
+}
+
+#education-form .input-field:first-child {
+  grid-area: name;
+}
+
+#education-form .input-field:nth-child(2) {
+  grid-area: city;
+}
+#education-form .input-field:nth-child(3) {
+  grid-area: degree;
+}
+#education-form .input-field:nth-child(4) {
+  grid-area: schoolStart;
+}
+#education-form .input-field:nth-child(5) {
+  grid-area: schoolEnd;
+}
+#education-form .form-buttons-cont {
+  grid-area: btn;
+}

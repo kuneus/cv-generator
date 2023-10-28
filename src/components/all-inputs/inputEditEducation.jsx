@@ -1,5 +1,6 @@
 import InputField from "./inputField";
 import FormButtons from "../formButtons";
+import "../../styles/inputEducation.css";
 
 function EducationList({ educationArr, editEducationItem }) {
   return (
@@ -36,23 +37,22 @@ export default function InputEditEducation({
 }) {
   return (
     <>
-      <div className="card">
+      <div className="card education-input">
         <h1 className="card-title">Education</h1>
         <EducationList
           educationArr={educationArr}
           editEducationItem={editEducationItem}
         />
         <button
-          style={{ display: educationFormDisplay ? "none" : "block" }}
+          style={{ display: educationFormDisplay ? "none" : "grid" }}
           onClick={addEducation}
         >
           Add Education
         </button>
-        {/* WORK ON ADD EDUCATION BUTTON! */}
         <form
           onSubmit={submitEducation}
           id="education-form"
-          style={{ display: educationFormDisplay ? "block" : "none" }}
+          style={{ display: educationFormDisplay ? "grid" : "none" }}
         >
           <InputField
             id="school-name-input"

@@ -10,7 +10,6 @@ export default function EditSection({
   location,
   email,
   role,
-  linkedIn,
   schoolName,
   schoolLocation,
   degree,
@@ -37,7 +36,7 @@ export default function EditSection({
   deleteItem,
 }) {
   return (
-    <>
+    <div className="left-container">
       <div className="edit-section">
         <InputEditPersonal
           firstName={firstName}
@@ -46,7 +45,6 @@ export default function EditSection({
           location={location}
           email={email}
           role={role}
-          linkedIn={linkedIn}
           handleChanges={handleChanges}
         />
         <InputEditEducation
@@ -81,6 +79,6 @@ export default function EditSection({
           deleteWorkItem={deleteItem}
         />
       </div>
-    </>
+    </div>
   );
 }
