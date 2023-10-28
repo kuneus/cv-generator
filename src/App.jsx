@@ -133,8 +133,10 @@ function App() {
     }
     let submittedObj = { ...temp };
     submittedObj.id = uuidv4();
+    if (submittedObj[0] !== "") {
+      handleSubmission(e.target.id, submittedObj);
+    }
 
-    handleSubmission(e.target.id, submittedObj);
     resetForm(e.target.id);
   }
 
