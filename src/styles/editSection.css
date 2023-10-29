@@ -73,14 +73,19 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 3px;
 }
 
 /* buttons for each submitted item */
 .submitted-list button {
   width: 100%;
-  background-color: rgb(44, 44, 44);
-  color: white;
+  background-color: rgb(196, 196, 196);
+  border-top: solid 3px rgb(44, 44, 44);
+  border-radius: 0px;
+  color: black;
+}
+
+.submitted-list li:last-child {
+  border-bottom: solid 3px rgb(44, 44, 44);
 }
 
 /* button for adding new item */

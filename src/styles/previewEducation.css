@@ -1,3 +1,43 @@
-/* START HERE!!  */
+.preview-education {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 30px;
+}
 
-/* also consider switching left and right sides for scroll bar purposes */
+.preview-education-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preview-education-card,
+.preview-education-input {
+  display: grid;
+  grid-template-areas:
+    "name dates"
+    "degree location";
+  justify-content: space-between;
+}
+
+.preview-education-card li:nth-child(1),
+.preview-education-input li:nth-child(1) {
+  grid-area: name;
+  font-weight: bolder;
+}
+
+.preview-education-card li:nth-child(2),
+.preview-education-input li:nth-child(2) {
+  grid-area: location;
+  text-align: end;
+}
+
+.preview-education-card li:nth-child(3),
+.preview-education-input li:nth-child(3) {
+  grid-area: degree;
+}
+
+.preview-education-card li:nth-child(4),
+.preview-education-input li:nth-child(4) {
+  grid-area: dates;
+}

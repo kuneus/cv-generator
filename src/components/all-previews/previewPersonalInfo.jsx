@@ -1,3 +1,5 @@
+import "../../styles/previewPersonal.css";
+
 export default function PreviewPersonalInfo({
   fullName,
   previewPhone,

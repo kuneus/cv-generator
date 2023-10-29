@@ -1,0 +1,39 @@
+.preview-personal-info {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: rgb(195, 195, 195);
+  display: grid;
+  grid-template-areas:
+    "title title"
+    "number location"
+    "email role";
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.preview-personal-info h1:first-child {
+  grid-area: title;
+  text-align: center;
+}
+
+.preview-personal-info div:nth-child(2) {
+  grid-area: number;
+}
+
+.preview-personal-info div:nth-child(3) {
+  grid-area: email;
+}
+
+.preview-personal-info div:nth-child(3) {
+  grid-area: location;
+  text-align: end;
+}
+
+.preview-personal-info div:nth-child(4) {
+  grid-area: email;
+}
+
+.preview-personal-info div:nth-child(5) {
+  grid-area: role;
+  text-align: end;
+}
