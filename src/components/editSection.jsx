@@ -36,7 +36,7 @@ export default function EditSection({
   deleteItem,
 }) {
   return (
-    <div className="left-container">
+    <div className="right-container">
       <div className="edit-section">
         <InputEditPersonal
           firstName={firstName}

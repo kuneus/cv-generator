@@ -7,7 +7,7 @@ export default function PreviewPersonalInfo({
   previewLinkedIn,
 }) {
   return (
-    <div className="preview-personal-info">
+    <div className="preview-personal-info preview-card">
       <h1 className="preview-title">{fullName}</h1>
       <div>{previewPhone}</div>
       <div>{previewEmail}</div>

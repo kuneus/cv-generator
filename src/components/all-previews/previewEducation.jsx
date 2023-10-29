@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { Fragment } from "react";
+import "../../styles/previewEducation.css";
 
 function EducationList({ educationArr }) {
   return (
@@ -26,7 +27,7 @@ export default function PreviewEducation({
   educationArr,
 }) {
   return (
-    <div className="preview-education">
+    <div className="preview-education preview-card">
       <h1 className="preview-title">Education</h1>
       <EducationList educationArr={educationArr} />
       <ul className="preview-education-items">

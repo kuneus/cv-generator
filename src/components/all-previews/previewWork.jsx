@@ -28,7 +28,7 @@ export default function PreviewWork({
   workArr,
 }) {
   return (
-    <div className="preview-work">
+    <div className="preview-work preview-card">
       <h1 className="preview-title">Work Experience</h1>
       <CreateNewWork workArr={workArr} />
       <ul className="preview-work-items">

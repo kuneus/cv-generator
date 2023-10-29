@@ -318,6 +318,17 @@ function App() {
 
   return (
     <div className="main-container">
+      <PreviewSection
+        fullName={fullName}
+        previewPhone={phoneNumber}
+        previewEmail={email}
+        previewLocation={location}
+        previewRole={role}
+        schoolInfo={saveOrSubmitEducation === "submit" && schoolInfo}
+        workInfo={saveOrSubmitWork === "submit" && workInfo}
+        educationArr={educationArr}
+        workArr={workArr}
+      />
       <EditSection
         firstName={firstName}
         lastName={lastName}
@@ -349,17 +360,6 @@ function App() {
         handleCancel={handleCancel}
         editWorkItem={editItem}
         deleteItem={deleteItem}
-      />
-      <PreviewSection
-        fullName={fullName}
-        previewPhone={phoneNumber}
-        previewEmail={email}
-        previewLocation={location}
-        previewRole={role}
-        schoolInfo={saveOrSubmitEducation === "submit" && schoolInfo}
-        workInfo={saveOrSubmitWork === "submit" && workInfo}
-        educationArr={educationArr}
-        workArr={workArr}
       />
     </div>
   );
