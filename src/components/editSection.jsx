@@ -2,6 +2,7 @@ import "../styles/editSection.css";
 import InputEditPersonal from "./all-inputs/inputEditPersonal";
 import InputEditEducation from "./all-inputs/inputEditEducation";
 import InputEditWork from "./all-inputs/inputEditWork";
+import ResetButton from "./resetButton";
 
 export default function EditSection({
   firstName,
@@ -34,6 +35,7 @@ export default function EditSection({
   editEducationItem,
   editWorkItem,
   deleteItem,
+  handleResetAll,
 }) {
   return (
     <div className="right-container">
@@ -78,6 +80,9 @@ export default function EditSection({
           editWorkItem={editWorkItem}
           deleteWorkItem={deleteItem}
         />
+        <div>
+          <ResetButton handleResetAll={handleResetAll} />
+        </div>
       </div>
     </div>
   );

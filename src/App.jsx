@@ -289,7 +289,6 @@ function App() {
   function deleteItem(e) {
     let targetForm;
 
-    console.log(e.target.id);
     if (e.target.id === "education-delete-btn") {
       targetForm = "education-form";
       // if in edit item mode, find item in array and delete it
@@ -314,6 +313,19 @@ function App() {
     }
 
     resetForm(targetForm);
+  }
+
+  function handleResetAll() {
+    resetForm("education-form");
+    resetForm("work-form");
+    setEducationArr([]);
+    setWorkArr([]);
+    setFirstName("");
+    setLastName("");
+    setPhoneNumber("");
+    setLocation("");
+    setEmail("");
+    setRole("");
   }
 
   return (
@@ -360,6 +372,7 @@ function App() {
         handleCancel={handleCancel}
         editWorkItem={editItem}
         deleteItem={deleteItem}
+        handleResetAll={handleResetAll}
       />
     </div>
   );
