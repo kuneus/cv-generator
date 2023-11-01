@@ -38,4 +38,18 @@
   border-style: none;
   resize: none;
   background-color: rgb(228, 227, 227);
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  #work-form {
+    grid-template-areas:
+      "name"
+      "city"
+      "role"
+      "workStart"
+      "workEnd"
+      "desc"
+      "btn";
+  }
 }

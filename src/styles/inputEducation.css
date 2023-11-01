@@ -30,3 +30,15 @@
 #education-form .form-buttons-cont {
   grid-area: btn;
 }
+
+@media screen and (max-width: 600px) {
+  #education-form {
+    grid-template-areas:
+      "name "
+      "city "
+      "degree "
+      "schoolStart "
+      "schoolEnd"
+      "btn";
+  }
+}

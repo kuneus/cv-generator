@@ -1,6 +1,6 @@
 .preview-personal-info {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 25px;
+  padding-bottom: 25px;
   background-color: rgb(195, 195, 195);
   display: grid;
   grid-template-areas:
@@ -9,6 +9,7 @@
     "email role";
   justify-content: space-between;
   gap: 5px;
+  border-bottom: 5px double black;
 }
 
 .preview-personal-info h1:first-child {

@@ -1,20 +1,21 @@
 import { v4 as uuidv4 } from "uuid";
-import { Fragment } from "react";
+import "../../styles/previewWork.css";
 
 function CreateNewWork({ workArr }) {
   return (
-    <ul className="preview-work-items">
+    <div className="preview-work-items">
       {workArr.map((work) => (
-        <Fragment key={uuidv4}>
+        <ul key={uuidv4} className="preview-work-card">
           <li>{work[0]}</li>
           <li>{work[1]}</li>
           <li>{work[2]}</li>
-          <li>{work[3]}</li>
-          <li>{work[4]}</li>
+          <li>
+            {work[3]} - {work[4]}
+          </li>
           <li>{work[5]}</li>
-        </Fragment>
+        </ul>
       ))}
-    </ul>
+    </div>
   );
 }
 
@@ -31,12 +32,15 @@ export default function PreviewWork({
     <div className="preview-work preview-card">
       <h1 className="preview-title">Work Experience</h1>
       <CreateNewWork workArr={workArr} />
-      <ul className="preview-work-items">
+      <ul className="preview-work-input">
         <li>{previewCompanyName}</li>
         <li>{previewCompanyLocation}</li>
         <li>{previewCompanyRole}</li>
-        <li>{previewCompanyStart}</li>
-        <li>{previewCompanyEnd}</li>
+        <li>
+          {previewCompanyStart &&
+            previewCompanyEnd &&
+            previewCompanyStart + " - " + previewCompanyEnd}
+        </li>
         <li>{previewCompanyDescription}</li>
       </ul>
     </div>
